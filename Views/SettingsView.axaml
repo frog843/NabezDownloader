@@ -1,0 +1,273 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="YouTubeDownloader.Views.SettingsView">
+
+
+	<StackPanel Spacing="10">
+
+
+		<ScrollViewer
+            Height="260"
+            VerticalScrollBarVisibility="Auto"
+            HorizontalScrollBarVisibility="Disabled">
+
+
+			<StackPanel
+                Spacing="15">
+
+
+				<Border
+                    Background="{DynamicResource SectionCardBackgroundBrush}"
+                    CornerRadius="12"
+                    Padding="15">
+
+
+					<StackPanel Spacing="10">
+
+
+						<TextBlock
+                            Text="{DynamicResource Section.Cookies}"
+                            FontSize="18"
+                            Foreground="{DynamicResource HeadingTextBrush}"/>
+
+
+						<TextBlock
+                            Text="{DynamicResource Section.Cookies.Desc}"
+                            Foreground="{DynamicResource SubtitleTextBrush}"/>
+
+
+						<Button
+                            x:Name="CookiesButton"
+                            Content="{DynamicResource Button.SelectCookies}"/>
+
+
+					</StackPanel>
+
+
+				</Border>
+
+
+
+
+				<Border
+                    Background="{DynamicResource SectionCardBackgroundBrush}"
+                    CornerRadius="12"
+                    Padding="15">
+
+
+					<StackPanel Spacing="10">
+
+
+						<TextBlock
+                            Text="{DynamicResource Section.Folder}"
+                            FontSize="18"
+                            Foreground="{DynamicResource HeadingTextBrush}"/>
+
+
+						<TextBlock
+                            Text="{DynamicResource Section.Folder.Desc}"
+                            Foreground="{DynamicResource SubtitleTextBrush}"/>
+
+
+						<Button
+                            x:Name="FolderButton"
+                            Content="{DynamicResource Button.SelectFolder}"/>
+
+
+					</StackPanel>
+
+
+				</Border>
+
+
+
+
+				<Border
+                    Background="{DynamicResource SectionCardBackgroundBrush}"
+                    CornerRadius="12"
+                    Padding="15">
+
+
+					<StackPanel Spacing="10">
+
+
+						<TextBlock
+                            Text="{DynamicResource Section.Interface}"
+                            FontSize="20"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource HeadingTextBrush}"/>
+
+
+
+						<Grid
+                            ColumnDefinitions="Auto,*">
+
+							<TextBlock
+                                Text="{DynamicResource Section.Language}"
+                                Foreground="{DynamicResource SubtitleTextBrush}"
+                                VerticalAlignment="Center"/>
+
+							<ComboBox
+                                x:Name="LanguageComboBox"
+                                Grid.Column="1"
+                                MinWidth="140"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                SelectedIndex="0">
+
+								<ComboBoxItem>System</ComboBoxItem>
+
+								<ComboBoxItem>Русский</ComboBoxItem>
+
+								<ComboBoxItem>English</ComboBoxItem>
+
+							</ComboBox>
+
+						</Grid>
+
+
+
+						<Grid
+                            ColumnDefinitions="Auto,*">
+
+							<TextBlock
+                                Text="{DynamicResource Section.Theme}"
+                                Foreground="{DynamicResource SubtitleTextBrush}"
+                                VerticalAlignment="Center"/>
+
+							<ComboBox
+                                x:Name="ThemeComboBox"
+                                Grid.Column="1"
+                                MinWidth="140"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                SelectedIndex="0">
+
+								<ComboBoxItem>Системная</ComboBoxItem>
+
+								<ComboBoxItem>Тёмная</ComboBoxItem>
+
+								<ComboBoxItem>Белая</ComboBoxItem>
+
+							</ComboBox>
+
+						</Grid>
+
+						<CheckBox
+							x:Name="SkipTitleCheck"
+							Content="{DynamicResource Checkbox.SkipTitle}"
+							Foreground="{DynamicResource HeadingTextBrush}"/>
+
+						<CheckBox
+							x:Name="SkipFormatCheck"
+							Content="{DynamicResource Checkbox.SkipFormat}"
+							Foreground="{DynamicResource HeadingTextBrush}"/>
+
+					</StackPanel>
+
+
+				</Border>
+
+
+				<Border
+					Background="{DynamicResource SectionCardBackgroundBrush}"
+					CornerRadius="12"
+					Padding="15">
+
+
+					<StackPanel Spacing="10">
+
+
+						<TextBlock
+							Text="{DynamicResource Section.Reset}"
+							FontSize="18"
+							FontWeight="SemiBold"
+							Foreground="{DynamicResource HeadingTextBrush}"/>
+
+
+						<TextBlock
+							Text="{DynamicResource Section.Reset.Desc}"
+							Foreground="{DynamicResource SubtitleTextBrush}"/>
+
+
+						<Button
+							x:Name="ResetButton"
+							Content="{DynamicResource Button.ResetAll}"
+							Background="{DynamicResource ResetButtonBrush}"
+							Foreground="{DynamicResource AccentTextBrush}"
+							CornerRadius="8"
+							BorderThickness="0"/>
+
+
+					</StackPanel>
+
+
+				</Border>
+
+
+				<Border
+					Background="{DynamicResource SectionCardBackgroundBrush}"
+					CornerRadius="12"
+					Padding="15">
+
+
+					<StackPanel Spacing="10">
+
+
+						<TextBlock
+							Text="{DynamicResource Section.Sound}"
+							FontSize="18"
+							FontWeight="SemiBold"
+							Foreground="{DynamicResource HeadingTextBrush}"/>
+
+
+						<TextBlock
+							Text="{DynamicResource Section.Sound.Desc}"
+							Foreground="{DynamicResource SubtitleTextBrush}"/>
+
+
+						<Grid
+							ColumnDefinitions="Auto,*">
+
+							<TextBlock
+								Text="{DynamicResource Section.Sound.File}"
+								Foreground="{DynamicResource SubtitleTextBrush}"
+								VerticalAlignment="Center"/>
+
+							<Button
+								x:Name="SoundButton"
+								Grid.Column="1"
+								Content="{DynamicResource Button.SelectSound}"
+								HorizontalAlignment="Right"
+								MinWidth="120"
+								CornerRadius="8"/>
+
+						</Grid>
+
+
+					</StackPanel>
+
+
+				</Border>
+
+
+			</StackPanel>
+
+
+		</ScrollViewer>
+
+
+		<Border Height="1"/>
+
+
+		<Button
+            x:Name="BackButton"
+            Content="{DynamicResource Button.Back}"
+            HorizontalAlignment="Left"/>
+
+
+	</StackPanel>
+
+
+</UserControl>

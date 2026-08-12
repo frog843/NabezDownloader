@@ -1,0 +1,70 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="YouTubeDownloader.Views.UpdateView">
+
+    <StackPanel
+        Spacing="18"
+        HorizontalAlignment="Center">
+
+        <TextBlock
+            Text="{DynamicResource Update.Available}"
+            FontSize="18"
+            FontWeight="SemiBold"
+            Foreground="{DynamicResource HeadingTextBrush}"
+            HorizontalAlignment="Center"
+            TextAlignment="Center"/>
+
+        <TextBlock
+            x:Name="VersionInfo"
+            Text=""
+            FontSize="14"
+            Foreground="{DynamicResource SubtitleTextBrush}"
+            HorizontalAlignment="Center"
+            TextAlignment="Center"/>
+
+        <Border
+            Background="{DynamicResource InnerRowBackgroundBrush}"
+            CornerRadius="10"
+            Padding="14"
+            MaxWidth="340"
+            IsVisible="{Binding #Notes.IsVisible, RelativeSource={RelativeSource Self}}">
+            <ScrollViewer
+                MaxHeight="160">
+                <TextBlock
+                    x:Name="Notes"
+                    Text=""
+                    FontSize="13"
+                    Foreground="{DynamicResource LabelTextBrush}"
+                    TextWrapping="Wrap"/>
+            </ScrollViewer>
+        </Border>
+
+        <StackPanel
+            Orientation="Horizontal"
+            Spacing="10"
+            HorizontalAlignment="Center">
+
+            <Button
+                Width="130"
+                Height="34"
+                Content="{DynamicResource Update.Download}"
+                Classes="fluent"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Click="Download_Click"/>
+
+            <Button
+                Width="110"
+                Height="34"
+                Content="{DynamicResource Update.Later}"
+                Classes="fluent"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Click="Later_Click"/>
+
+        </StackPanel>
+
+    </StackPanel>
+
+</UserControl>

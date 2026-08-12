@@ -1,0 +1,138 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+	<Style Selector="TextBox.urlBox /template/ Border#PART_BorderElement">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="BorderBrush" Value="Transparent"/>
+		<Setter Property="BorderThickness" Value="0"/>
+	</Style>
+
+
+	<Style Selector="TextBox.urlBox:pointerover /template/ Border#PART_BorderElement">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="BorderBrush" Value="Transparent"/>
+	</Style>
+
+
+	<Style Selector="TextBox.urlBox:focus /template/ Border#PART_BorderElement">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="BorderBrush" Value="Transparent"/>
+	</Style>	
+	
+	<Style Selector="Button.fluent">
+
+		<Setter Property="Background" Value="{DynamicResource AccentBrush}"/>
+		<Setter Property="Foreground" Value="{DynamicResource HeadingTextBrush}"/>
+		<Setter Property="CornerRadius" Value="8"/>
+		<Setter Property="FontSize" Value="15"/>
+
+		<Setter Property="Transitions">
+
+			<Transitions>
+
+				<BrushTransition
+                    Property="Background"
+                    Duration="0:0:0.15"/>
+
+			</Transitions>
+
+		</Setter>
+
+	</Style>
+
+
+
+	<Style Selector="Button.fluent:pointerover">
+
+		<Setter Property="Background"
+                Value="{DynamicResource AccentHoverBrush}"/>
+
+	</Style>
+
+
+
+	<Style Selector="Button.fluent:pressed">
+
+		<Setter Property="Background"
+                Value="{DynamicResource AccentPressedBrush}"/>
+
+	</Style>
+
+
+
+	<Style Selector="Border.card">
+
+		<Setter Property="Background"
+                Value="{DynamicResource CardBackgroundBrush}"/>
+
+		<Setter Property="CornerRadius"
+                Value="12"/>
+
+	</Style>
+
+	<Style Selector="Button.quality">
+
+		<Setter Property="Background"
+				Value="{DynamicResource CardBackgroundBrush}"/>
+
+		<Setter Property="Foreground"
+				Value="{DynamicResource HeadingTextBrush}"/>
+
+		<Setter Property="CornerRadius"
+				Value="12"/>
+
+		<Setter Property="Padding"
+				Value="15"/>
+
+		<Setter Property="HorizontalContentAlignment"
+				Value="Stretch"/>
+
+		<Setter Property="BorderThickness"
+				Value="0"/>
+
+
+		<Setter Property="Transitions">
+
+			<Transitions>
+
+				<BrushTransition
+					Property="Background"
+					Duration="0:0:0.15"/>
+
+			</Transitions>
+
+		</Setter>
+
+	</Style>
+
+
+
+	<Style Selector="Button.quality:pointerover">
+
+		<Setter Property="Background"
+				Value="{DynamicResource QualityHoverBrush}"/>
+
+	</Style>
+
+
+
+	<Style Selector="Button.quality:pressed">
+
+		<Setter Property="Background"
+				Value="{DynamicResource QualityPressedBrush}"/>
+
+	</Style>
+
+
+
+	<Style Selector="Button.quality.selected">
+
+		<Setter Property="Background"
+				Value="{DynamicResource AccentBrush}"/>
+
+	</Style>
+
+
+</Styles>

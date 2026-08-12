@@ -1,0 +1,75 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="YouTubeDownloader.Controls.FluentDialog">
+
+
+	<Grid
+        x:Name="Root"
+        Background="{DynamicResource DialogOverlayBrush}"
+        IsVisible="False">
+
+
+		<Border
+			x:Name="DialogBox"
+			Width="400"
+			MaxHeight="450"
+			Padding="30"
+			Background="{DynamicResource ContentBackgroundBrush}"
+			CornerRadius="20"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center">
+
+
+			<StackPanel Spacing="20">
+
+
+				<TextBlock
+                    x:Name="Title"
+                    Text="{DynamicResource Dialog.Preparing}"
+                    FontSize="26"
+                    FontWeight="SemiBold"
+                    Foreground="{DynamicResource HeadingTextBrush}"/>
+
+
+
+				<ContentControl
+                    x:Name="DialogContent"/>
+
+
+
+				<ProgressBar
+					x:Name="Progress"
+					Height="10"
+					Minimum="0"
+					Maximum="100"
+					IsVisible="False"/>
+
+
+
+				<TextBlock
+                    x:Name="Status"
+                    Text="{DynamicResource Dialog.PreparingStatus}"
+                    Foreground="{DynamicResource SubtitleTextBrush}"
+					IsVisible="False"
+                    FontSize="15"/>
+
+
+
+				<StackPanel
+                    x:Name="ButtonsPanel"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="10"/>
+
+
+			</StackPanel>
+
+
+		</Border>
+
+
+	</Grid>
+
+
+</UserControl>

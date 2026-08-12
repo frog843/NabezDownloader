@@ -1,0 +1,523 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ 	xmlns:controls="using:YouTubeDownloader.Controls"
+    x:Class="YouTubeDownloader.Views.MainWindow"
+    Width="450"
+    Height="600"
+    CanResize="False"
+    Title="Nabez Downloader"
+    FontFamily="Segoe UI"
+    Background="{DynamicResource AppBackgroundBrush}">
+
+
+	<Grid>
+		<Grid Margin="32,32,32,20">
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/> <!-- header -->
+				<RowDefinition Height="Auto"/> <!-- url -->
+				<RowDefinition Height="20"/>   <!-- пустое место -->
+				<RowDefinition Height="*"/>    <!-- main content -->
+				<RowDefinition Height="Auto"/> <!-- button -->
+			</Grid.RowDefinitions>
+
+
+
+			<!-- HEADER -->
+
+			<Grid Height="60">
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+
+
+				<Image
+					Grid.Column="0"
+					Width="32"
+					Height="32"
+					Source="/Assets/logo.ico"/>
+
+
+				<TextBlock
+					Grid.Column="1"
+					Text="{DynamicResource App.Title}"
+					Margin="14,0"
+					VerticalAlignment="Center"
+					FontSize="24"
+					FontWeight="SemiBold"
+					Foreground="{DynamicResource HeadingTextBrush}"/>
+
+
+
+			<Button
+				Grid.Column="2"
+				Margin="0,0,10,0"
+				Width="42"
+				Height="42"
+				Background="{DynamicResource CardBackgroundBrush}"
+				Click="OpenDownloadFolder"
+				CornerRadius="10">
+
+				<Image
+					Source="/Assets/folder.ico"
+					Width="22"
+					Height="22"/>
+
+				<Button.ContextMenu>
+					<ContextMenu>
+						<MenuItem
+							Header="{DynamicResource FolderPicker.ContextMenu}"
+							Click="ChangeDownloadFolder"/>
+					</ContextMenu>
+				</Button.ContextMenu>
+
+			</Button>
+
+
+				<Button
+					Grid.Column="3"
+					Width="42"
+					Height="42"
+					Background="{DynamicResource CardBackgroundBrush}"
+					Click="OpenSettings"
+					CornerRadius="10">
+
+					<Image
+						Source="/Assets/settings.ico"
+						Width="22"
+						Height="22"/>
+
+				</Button>
+
+
+			</Grid>
+
+
+
+
+
+			<!-- URL INPUT -->
+
+			<Border
+				Grid.Row="1"
+				Margin="0,35,0,10"
+				Background="{DynamicResource CardBackgroundBrush}"
+				CornerRadius="12"
+				Padding="12,8">
+
+
+				<Grid>
+
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="40"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+
+					<Image
+						Grid.Row="0"
+						Width="20"
+						Height="20"
+						Source="/Assets/link.ico"
+						Margin="14,0"/>
+
+
+				<TextBox
+					x:Name="YoutubeUrl"
+					Grid.Row="0"
+					Grid.Column="1"
+					Classes="urlBox"
+					Background="Transparent"
+					BorderThickness="0"
+					FontSize="16"
+					Foreground="{DynamicResource HeadingTextBrush}"
+					PlaceholderText="{DynamicResource Placeholder.Url}"
+					Padding="0"
+					Margin="0,0,0,0"
+					TextChanged="YoutubeUrl_TextChanged"
+					HorizontalContentAlignment="Left"
+					VerticalContentAlignment="{x:Static VerticalAlignment.Center}"/>
+
+					<Grid
+						Grid.Row="1"
+						Grid.ColumnSpan="2"
+						Margin="0,6,0,0">
+
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+
+						<TextBlock
+							x:Name="PlaylistIndicator"
+							Grid.Column="0"
+							Grid.ColumnSpan="2"
+							Foreground="{DynamicResource AccentBrush}"
+							FontSize="13"
+							FontWeight="SemiBold"
+							VerticalAlignment="{x:Static VerticalAlignment.Center}"
+							Text=""
+							Margin="0,6,0,0"/>
+
+						<TextBlock
+							x:Name="VideoTitleText"
+							Grid.Column="0"
+							Foreground="{DynamicResource SubtitleTextBrush}"
+							FontSize="13"
+							VerticalAlignment="{x:Static VerticalAlignment.Center}"
+							TextTrimming="CharacterEllipsis"
+							Text=""/>
+
+							<Button
+								x:Name="CheckQualityButton"
+								Grid.Column="1"
+								Margin="8,0,0,0"
+								Padding="12,9"
+								Background="{DynamicResource AccentBrush}"
+								Foreground="{DynamicResource AccentTextBrush}"
+								BorderThickness="0"
+								CornerRadius="8"
+								FontSize="14"
+								HorizontalContentAlignment="Center"
+								VerticalContentAlignment="Center"
+								Click="CheckQuality_Click"
+								Content="{DynamicResource Button.CheckQuality}"/>
+
+					</Grid>
+
+				</Grid>
+
+			</Border>
+
+
+
+
+
+			<!-- MAIN CONTENT -->
+
+
+			<Border
+				Grid.Row="3"
+				Margin="-10,-10,-10,0"
+				Background="{DynamicResource ContentBackgroundBrush}"
+				CornerRadius="16"
+				Padding="10">
+
+
+				<ScrollViewer>
+
+					<StackPanel Spacing="18">
+
+					<!-- QUALITY CARD -->
+
+
+					<Border
+						Background="{DynamicResource CardBackgroundBrush}"
+						CornerRadius="14"
+						Padding="22">
+
+
+						<StackPanel Spacing="15">
+
+
+							<TextBlock
+								Text="{DynamicResource Section.Quality}"
+								FontSize="18"
+								FontWeight="SemiBold"
+								Foreground="{DynamicResource HeadingTextBrush}"/>
+
+							<StackPanel
+								x:Name="QualityList"
+								Spacing="12"/>
+
+
+						</StackPanel>
+
+
+					</Border>
+
+
+
+					<!-- SETTINGS -->
+
+					<Border
+						Background="{DynamicResource CardBackgroundBrush}"
+						CornerRadius="14"
+						Padding="22">
+
+
+						<StackPanel Spacing="12">
+
+
+							<TextBlock
+								Text="{DynamicResource Section.Formats}"
+								FontSize="18"
+								FontWeight="SemiBold"
+								Foreground="{DynamicResource HeadingTextBrush}"/>
+
+
+
+							<Border
+								Background="{DynamicResource InnerRowBackgroundBrush}"
+								CornerRadius="8"
+								Padding="14">
+
+
+								<Grid>
+
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="Auto"/>
+									</Grid.ColumnDefinitions>
+
+
+									<TextBlock
+										Text="{DynamicResource Section.VideoFormat}"
+										Foreground="{DynamicResource LabelTextBrush}"/>
+
+
+									<TextBlock
+										Grid.Column="1"
+										Text="{DynamicResource Format.MP4}"
+										Foreground="{DynamicResource HeadingTextBrush}"/>
+
+
+								</Grid>
+
+
+							</Border>
+
+
+
+							<Border
+								x:Name="AudioFormatRow"
+								Background="{DynamicResource InnerRowBackgroundBrush}"
+								CornerRadius="8"
+								Padding="14"
+								IsVisible="False">
+
+
+								<Grid>
+
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="Auto"/>
+									</Grid.ColumnDefinitions>
+
+
+									<TextBlock
+										Text="{DynamicResource Section.AudioFormat}"
+										Foreground="{DynamicResource LabelTextBrush}"/>
+
+
+									<ComboBox
+										Grid.Column="1"
+										x:Name="AudioFormatCombo"
+										Width="100"
+										HorizontalAlignment="Right"
+										VerticalAlignment="Center"
+										SelectedIndex="0"/>
+
+
+								</Grid>
+
+
+							</Border>
+
+
+
+							<Border
+								x:Name="FrequencyRow"
+								Background="{DynamicResource InnerRowBackgroundBrush}"
+								CornerRadius="8"
+								Padding="14"
+								IsVisible="False">
+
+
+								<Grid>
+
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="Auto"/>
+									</Grid.ColumnDefinitions>
+
+
+									<TextBlock
+										Text="{DynamicResource Section.Frequency}"
+										Foreground="{DynamicResource LabelTextBrush}"/>
+
+
+									<ComboBox
+										Grid.Column="1"
+										x:Name="FrequencyCombo"
+										Width="100"
+										HorizontalAlignment="Right"
+										VerticalAlignment="Center"
+										SelectedIndex="0"/>
+
+
+								</Grid>
+
+
+							</Border>
+
+							<Border
+								Background="{DynamicResource InnerRowBackgroundBrush}"
+								CornerRadius="8"
+								Padding="14">
+
+
+								<StackPanel Spacing="10">
+
+
+									<TextBlock
+										Text="{DynamicResource Section.Download}"
+										Foreground="{DynamicResource HeadingTextBrush}"
+										FontSize="16"/>
+
+
+
+									<CheckBox
+										x:Name="DownloadVideoCheck"
+										IsChecked="False"
+										Content="{DynamicResource Checkbox.DownloadVideo}"
+										Foreground="{DynamicResource HeadingTextBrush}"/>
+
+
+
+									<CheckBox
+										x:Name="DownloadAudioCheck"
+										IsChecked="False"
+										Content="{DynamicResource Checkbox.DownloadAudio}"
+										Foreground="{DynamicResource HeadingTextBrush}"/>
+
+
+								</StackPanel>
+
+
+							</Border>
+
+						</StackPanel>
+
+					</Border>
+
+				</StackPanel>
+
+			</ScrollViewer>
+
+		</Border>
+
+
+
+			<!-- DOWNLOAD BUTTON -->
+
+
+			<Grid
+				Grid.Row="4"
+				Margin="0,20,0,0">
+
+
+				<Grid.ColumnDefinitions>
+
+					<ColumnDefinition Width="*"/>
+
+					<ColumnDefinition Width="Auto"/>
+
+				</Grid.ColumnDefinitions>
+
+
+
+				<!-- ПРОГРЕСС СЛЕВА -->
+
+				<StackPanel
+					Grid.Column="0"
+					Spacing="8">
+
+
+					<Grid>
+
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+
+
+						<!-- БАР -->
+
+						<ProgressBar
+							x:Name="DownloadProgress"
+							Height="10"
+							Minimum="0"
+							Maximum="100"
+							Value="0"
+							Background="{DynamicResource InnerRowBackgroundBrush}"
+							Foreground="{DynamicResource AccentBrush}"/>
+
+
+
+						<TextBlock
+							x:Name="ProgressText"
+							Grid.Column="1"
+							Margin="10,0,0,0"
+							Text="0%"
+							Foreground="{DynamicResource SubtitleTextBrush}"/>
+
+
+					</Grid>
+
+
+
+					<TextBlock
+						x:Name="StatusText"
+						Text=""
+						Foreground="{DynamicResource SubtitleTextBrush}"
+						FontSize="13"/>
+
+
+				</StackPanel>
+
+
+
+				<!-- КНОПКА СПРАВА -->
+
+
+				<Button
+					x:Name="DownloadButton"
+					Grid.Column="1"
+					Margin="20,0,0,0"
+					Width="120"
+					Height="40"
+					Background="{DynamicResource AccentBrush}"
+					Foreground="{DynamicResource AccentTextBrush}"
+					CornerRadius="10"
+					FontSize="24"
+					FontWeight="SemiBold"
+					HorizontalContentAlignment="Center"
+					VerticalContentAlignment="Center"
+					Click="Download_Click"
+					Content="{DynamicResource Button.Download}"/>
+
+
+			</Grid>
+
+
+		</Grid>
+
+		<controls:FluentDialog
+			x:Name="Dialog"/>
+
+
+	</Grid>
+
+
+</Window>

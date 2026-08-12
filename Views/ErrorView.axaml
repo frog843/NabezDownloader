@@ -1,0 +1,36 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="YouTubeDownloader.Views.ErrorView">
+
+
+    <StackPanel
+        Spacing="20"
+        HorizontalAlignment="Center">
+
+
+        <TextBlock
+            x:Name="ErrorMessage"
+            Text=""
+            Foreground="{DynamicResource SubtitleTextBrush}"
+            FontSize="14"
+            TextWrapping="Wrap"
+            MaxWidth="350"
+            HorizontalAlignment="Center"/>
+
+
+        <Button
+            Width="100"
+            Height="30"
+            Content="{DynamicResource Button.Ok}"
+            Classes="fluent"
+            HorizontalAlignment="Center"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Click="Ok_Click"/>
+
+
+    </StackPanel>
+
+
+</UserControl>

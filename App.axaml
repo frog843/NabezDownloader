@@ -1,0 +1,43 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="YouTubeDownloader.App"
+             xmlns:local="using:YouTubeDownloader"
+             RequestedThemeVariant="Default">
+
+	<Application.Resources>
+
+		<SolidColorBrush x:Key="AppBackgroundBrush" Color="#1c1c1c"/>
+		<SolidColorBrush x:Key="ContentBackgroundBrush" Color="#202020"/>
+		<SolidColorBrush x:Key="CardBackgroundBrush" Color="#2B2B2B"/>
+		<SolidColorBrush x:Key="SectionCardBackgroundBrush" Color="#303030"/>
+		<SolidColorBrush x:Key="InnerRowBackgroundBrush" Color="#323232"/>
+		<SolidColorBrush x:Key="ProgressTrackBackgroundBrush" Color="#3A3A3A"/>
+		<SolidColorBrush x:Key="AccentBrush" Color="#0078D4"/>
+		<SolidColorBrush x:Key="AccentHoverBrush" Color="#106EBE"/>
+		<SolidColorBrush x:Key="AccentPressedBrush" Color="#005A9E"/>
+		<SolidColorBrush x:Key="AccentTextBrush" Color="#FFFFFF"/>
+		<SolidColorBrush x:Key="HeadingTextBrush" Color="#FFFFFF"/>
+		<SolidColorBrush x:Key="LabelTextBrush" Color="#D0D0D0"/>
+		<SolidColorBrush x:Key="SubtitleTextBrush" Color="#AAAAAA"/>
+		<SolidColorBrush x:Key="ResetButtonBrush" Color="#D32F2F"/>
+		<SolidColorBrush x:Key="QualityHoverBrush" Color="#383838"/>
+		<SolidColorBrush x:Key="QualityPressedBrush" Color="#444444"/>
+		<SolidColorBrush x:Key="QualitySelectedBrush" Color="#0078D4"/>
+		<SolidColorBrush x:Key="DialogOverlayBrush" Color="#99000000"/>
+
+	</Application.Resources>
+
+	<Application.DataTemplates>
+		<local:ViewLocator />
+	</Application.DataTemplates>
+
+	<Application.Styles>
+
+		<FluentTheme />
+
+		<StyleInclude
+            Source="avares://YouTubeDownloader/Styles/FluentStyles.axaml"/>
+
+	</Application.Styles>
+
+</Application>

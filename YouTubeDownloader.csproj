@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>x64</Platforms>
+    <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
+    <PublishSingleFile>true</PublishSingleFile>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+
+    <AvaloniaResource Include="Assets\**" />
+
+    <AvaloniaResource Include="Styles\FluentStyles.axaml" />
+
+  </ItemGroup>
+
+
+  <ItemGroup>
+
+    <PackageReference Include="Avalonia" Version="12.1.0" />
+
+    <PackageReference Include="Avalonia.Desktop" Version="12.1.0" />
+
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="12.1.0" />
+
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="12.1.0" />
+
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+
+  </ItemGroup>
+
+
+  <ItemGroup>
+
+    <Folder Include="Tools\" />
+
+  </ItemGroup>
+
+
+</Project>
