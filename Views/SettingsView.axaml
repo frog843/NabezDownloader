@@ -252,6 +252,30 @@
 				</Border>
 
 
+				<Border
+					Background="{DynamicResource SectionCardBackgroundBrush}"
+					CornerRadius="12"
+					Padding="15"
+					Margin="0,5,0,0">
+
+					<StackPanel Spacing="6">
+
+						<TextBlock
+							Text="{DynamicResource Section.Version}"
+							FontSize="14"
+							FontWeight="SemiBold"
+							Foreground="{DynamicResource HeadingTextBrush}"/>
+
+						<TextBlock
+							x:Name="VersionText"
+							Text=""
+							Foreground="{DynamicResource SubtitleTextBrush}"/>
+
+					</StackPanel>
+
+				</Border>
+
+
 			</StackPanel>
 
 

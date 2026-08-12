@@ -27,8 +27,7 @@
             Background="{DynamicResource InnerRowBackgroundBrush}"
             CornerRadius="10"
             Padding="14"
-            MaxWidth="340"
-            IsVisible="{Binding #Notes.IsVisible, RelativeSource={RelativeSource Self}}">
+            MaxWidth="340">
             <ScrollViewer
                 MaxHeight="160">
                 <TextBlock
@@ -40,12 +39,32 @@
             </ScrollViewer>
         </Border>
 
+        <ProgressBar
+            x:Name="Progress"
+            Height="10"
+            Minimum="0"
+            Maximum="100"
+            Value="0"
+            IsVisible="False"
+            Foreground="{DynamicResource AccentBrush}"
+            Background="{DynamicResource InnerRowBackgroundBrush}"/>
+
+        <TextBlock
+            x:Name="Status"
+            Text=""
+            FontSize="13"
+            Foreground="{DynamicResource SubtitleTextBrush}"
+            HorizontalAlignment="Center"
+            IsVisible="False"/>
+
         <StackPanel
+            x:Name="Buttons"
             Orientation="Horizontal"
             Spacing="10"
             HorizontalAlignment="Center">
 
             <Button
+                x:Name="DownloadButton"
                 Width="130"
                 Height="34"
                 Content="{DynamicResource Update.Download}"
@@ -55,10 +74,13 @@
                 Click="Download_Click"/>
 
             <Button
+                x:Name="LaterButton"
                 Width="110"
                 Height="34"
                 Content="{DynamicResource Update.Later}"
                 Classes="fluent"
+                Background="{DynamicResource CardBackgroundBrush}"
+                Foreground="{DynamicResource HeadingTextBrush}"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Click="Later_Click"/>

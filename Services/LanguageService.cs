@@ -32,7 +32,7 @@ public static class LanguageService
 
         _initialized = true;
 
-        Ru["App.Title"] = "Nabez downloader";
+        Ru["App.Title"] = "Nabez Downloader";
         Ru["Settings.Title"] = "Настройки";
         Ru["Error.Title"] = "Ошибка";
         Ru["Warning.Title"] = "Предупреждение";
@@ -71,7 +71,7 @@ public static class LanguageService
 
         Ru["Playlist.Videos"] = "видео";
 
-        Ru["Section.Cookies"] = "Cookies Nabez";
+        Ru["Section.Cookies"] = "Youtube Cookies";
         Ru["Section.Cookies.Desc"] = "Выберите cookies.txt для входа в аккаунт";
         Ru["Section.Folder"] = "Папка загрузки";
         Ru["Section.Folder.Desc"] = "Выберите, куда будут сохраняться видео";
@@ -114,7 +114,7 @@ public static class LanguageService
         Ru["Format.MP3"] = "MP3  ›";
         Ru["Format.Frequency"] = "44100 Hz  ›";
 
-        Ru["Placeholder.Url"] = "Вставьте ссылку Nabez";
+        Ru["Placeholder.Url"] = "Вставьте Youtube ссылку";
 
         Ru["Message.ResetConfirm"] = "Вы хотите удалить все настройки и инструменты?\n(потребует перезапуск)";
         Ru["Message.CookiesMissing"] = "Отсутствие файла cookies. Выберите его в настройках";
@@ -128,13 +128,18 @@ public static class LanguageService
         Ru["Tool.ExtractingDeno"] = "Распаковка deno...";
         Ru["Tool.PrepareComplete"] = "Подготовка завершена!";
 
+        Ru["Section.Version"] = "Версия";
+
         Ru["Update.Available"] = "Доступно обновление";
         Ru["Update.VersionInfo"] = "Текущая версия: {0}  →  Новая: {1}";
         Ru["Update.NoNotes"] = "Подробности на странице релиза.";
         Ru["Update.Download"] = "Скачать";
         Ru["Update.Later"] = "Позже";
+        Ru["Update.Downloading"] = "Скачивание обновления...";
+        Ru["Update.DownloadingPercent"] = "Скачивание обновления... {0}%";
+        Ru["Update.Preparing"] = "Подготовка обновления...";
 
-        En["App.Title"] = "Nabez downloader";
+        En["App.Title"] = "Nabez Downloader";
         En["Settings.Title"] = "Settings";
         En["Error.Title"] = "Error";
         En["Warning.Title"] = "Warning";
@@ -165,7 +170,7 @@ public static class LanguageService
         En["Status.GettingTitleStatus"] = "Getting title...";
         En["Status.GettingFormatsList"] = "Getting formats list...";
 
-        En["Section.Cookies"] = "Cookies Nabez";
+        En["Section.Cookies"] = "Youtube Cookies";
         En["Section.Cookies.Desc"] = "Select cookies.txt to sign in";
         En["Section.Folder"] = "Download folder";
         En["Section.Folder.Desc"] = "Select where videos will be saved";
@@ -208,7 +213,7 @@ public static class LanguageService
         En["Format.MP3"] = "MP3  ›";
         En["Format.Frequency"] = "44100 Hz  ›";
 
-        En["Placeholder.Url"] = "Paste Nabez link";
+        En["Placeholder.Url"] = "Paste Youtube URL";
 
         En["Message.ResetConfirm"] = "Delete all settings and tools?\n(requires restart)";
         En["Message.CookiesMissing"] = "Missing cookies file. Select it in settings";
@@ -226,11 +231,16 @@ public static class LanguageService
         En["Tool.ExtractingDeno"] = "Extracting deno...";
         En["Tool.PrepareComplete"] = "Preparation complete!";
 
+        En["Section.Version"] = "Version";
+
         En["Update.Available"] = "Update available";
         En["Update.VersionInfo"] = "Current: {0}  →  New: {1}";
         En["Update.NoNotes"] = "See the release page for details.";
         En["Update.Download"] = "Download";
         En["Update.Later"] = "Later";
+        En["Update.Downloading"] = "Downloading update...";
+        En["Update.DownloadingPercent"] = "Downloading update... {0}%";
+        En["Update.Preparing"] = "Preparing update...";
 
         En["Status.DownloadingPlaylist"] = "Downloading playlist...";
         En["Status.DownloadingVideoOfPlaylist"] = "Downloading video {0} of {1}...";

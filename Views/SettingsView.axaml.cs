@@ -31,6 +31,26 @@ public partial class SettingsView : UserControl
     {
         InitializeComponent();
         settings = SettingsService.Load();
+        SetVersionText();
+    }
+
+    private void SetVersionText()
+    {
+        try
+        {
+            var version = typeof(GithubUpdateService)
+                .Assembly
+                .GetName()
+                .Version;
+
+            VersionText.Text = version != null
+                ? version.ToString()
+                : "1.0.0";
+        }
+        catch
+        {
+            VersionText.Text = "1.0.0";
+        }
     }
 
     public SettingsView(FluentDialog dialog) : this()

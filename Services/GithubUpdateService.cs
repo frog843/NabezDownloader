@@ -9,7 +9,7 @@ namespace YouTubeDownloader.Services;
 public class GithubUpdateService
 {
     private const string ApiUrl =
-        "https://api.github.com/repos/frog843/NabezDownloader-Releases/releases/latest";
+        "https://api.github.com/repos/frog843/NabezDownloader/releases/latest";
 
     private static readonly string UserAgent = "YouTubeDownloader-Updater";
 
