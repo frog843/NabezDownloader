@@ -5,7 +5,7 @@
     x:Class="YouTubeDownloader.Views.MainWindow"
     Width="450"
     Height="600"
-    CanResize="False"
+    CanResize="True"
     Title="Nabez Downloader"
     FontFamily="Segoe UI"
     Background="{DynamicResource AppBackgroundBrush}">
