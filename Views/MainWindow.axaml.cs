@@ -161,6 +161,11 @@ public partial class MainWindow : Window
         FrequencyCombo.SelectionChanged += FrequencyCombo_SelectionChanged;
 
         var savedSettings = SettingsService.Load();
+        if (savedSettings.WindowWidth > 0 && savedSettings.WindowHeight > 0)
+        {
+            Width = savedSettings.WindowWidth;
+            Height = savedSettings.WindowHeight;
+        }
         if (!string.IsNullOrEmpty(savedSettings.AudioFormat))
         {
             _selectedAudioFormat = savedSettings.AudioFormat;
@@ -203,6 +208,14 @@ public partial class MainWindow : Window
             }
 
             await CheckForAppUpdate();
+        };
+
+        Closing += (_, _) =>
+        {
+            var settings = SettingsService.Load();
+            settings.WindowWidth = Width;
+            settings.WindowHeight = Height;
+            SettingsService.Save(settings);
         };
     }
 

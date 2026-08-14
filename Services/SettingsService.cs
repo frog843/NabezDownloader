@@ -16,6 +16,8 @@ public class Settings
     public string AudioFormat { get; set; } = "mp3";
     public string Frequency { get; set; } = "44100";
     public string CompletionSound { get; set; } = "default";
+    public double WindowWidth { get; set; } = 450;
+    public double WindowHeight { get; set; } = 600;
 }
 
 

@@ -5,13 +5,14 @@ using Avalonia.Platform.Storage;
 using YouTubeDownloader.Controls;
 using YouTubeDownloader.Services;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 
 namespace YouTubeDownloader.Views;
 
 
-public partial class SettingsView : UserControl
+public partial class SettingsView : UserControl, IFluentStretchContent
 {
 
     private FluentDialog? _dialog;
@@ -96,13 +97,9 @@ public partial class SettingsView : UserControl
         SkipFormatCheck.IsChecked = settings.SkipFormat;
 
 
-        ThemeComboBox.SelectedIndex = ThemeService.Theme switch
-        {
-            "System" => 0,
-            "Dark" => 1,
-            "Light" => 2,
-            _ => 0
-        };
+        PopulateThemeCombo();
+
+        LanguageService.LanguageChanged += PopulateThemeCombo;
 
         ThemeComboBox.SelectionChanged += (_, _) =>
         {
@@ -316,6 +313,36 @@ public partial class SettingsView : UserControl
             }
         };
 
+    }
+
+
+    public void SetViewport(double width, double height)
+    {
+        if (height <= 0)
+            return;
+
+        ContentScroller.Height =
+            Math.Max(260, height * (260.0 / 600));
+    }
+
+
+    private void PopulateThemeCombo()
+    {
+        int selected = ThemeService.Theme switch
+        {
+            "Dark" => 1,
+            "Light" => 2,
+            _ => 0
+        };
+
+        ThemeComboBox.ItemsSource = new List<string>
+        {
+            LanguageService.Get("Section.Theme.System"),
+            LanguageService.Get("Section.Theme.Dark"),
+            LanguageService.Get("Section.Theme.Light")
+        };
+
+        ThemeComboBox.SelectedIndex = selected;
     }
 
 }

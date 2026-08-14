@@ -81,6 +81,9 @@ public static class LanguageService
         Ru["Section.Language.Russian"] = "Русский";
         Ru["Section.Language.English"] = "Английский";
         Ru["Section.Theme"] = "Тема";
+        Ru["Section.Theme.System"] = "Системная";
+        Ru["Section.Theme.Dark"] = "Тёмная";
+        Ru["Section.Theme.Light"] = "Белая";
         Ru["Section.Quality"] = "Качество видео";
         Ru["Section.Formats"] = "Настройки";
         Ru["Section.VideoFormat"] = "Видео формат";
@@ -180,6 +183,9 @@ public static class LanguageService
         En["Section.Language.Russian"] = "Russian";
         En["Section.Language.English"] = "English";
         En["Section.Theme"] = "Theme";
+        En["Section.Theme.System"] = "System";
+        En["Section.Theme.Dark"] = "Dark";
+        En["Section.Theme.Light"] = "Light";
         En["Section.Quality"] = "Video quality";
         En["Section.Formats"] = "Settings";
         En["Section.VideoFormat"] = "Video format";

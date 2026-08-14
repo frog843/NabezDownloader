@@ -8,6 +8,7 @@
 
 
 		<ScrollViewer
+            x:Name="ContentScroller"
             Height="260"
             VerticalScrollBarVisibility="Auto"
             HorizontalScrollBarVisibility="Disabled">
@@ -136,21 +137,12 @@
                                 Foreground="{DynamicResource SubtitleTextBrush}"
                                 VerticalAlignment="Center"/>
 
-							<ComboBox
-                                x:Name="ThemeComboBox"
-                                Grid.Column="1"
-                                MinWidth="140"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Center"
-                                SelectedIndex="0">
-
-								<ComboBoxItem>Системная</ComboBoxItem>
-
-								<ComboBoxItem>Тёмная</ComboBoxItem>
-
-								<ComboBoxItem>Белая</ComboBoxItem>
-
-							</ComboBox>
+						<ComboBox
+                            x:Name="ThemeComboBox"
+                            Grid.Column="1"
+                            MinWidth="140"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"/>
 
 						</Grid>
 

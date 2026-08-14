@@ -12,6 +12,7 @@
 
 		<Border
 			x:Name="DialogBox"
+			MinWidth="400"
 			Width="400"
 			MaxHeight="450"
 			Padding="30"

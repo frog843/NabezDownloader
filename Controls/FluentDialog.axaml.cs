@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace YouTubeDownloader.Controls;
 
+public interface IFluentStretchContent
+{
+    void SetViewport(double width, double height);
+}
+
 public partial class FluentDialog : UserControl
 {
 
     public event Action? BackRequested;
 
     private ScaleTransform DialogScale;
+
+    private IFluentStretchContent? _stretchContent;
 
 
     public FluentDialog()
@@ -24,6 +31,54 @@ public partial class FluentDialog : UserControl
 
         DialogBox.RenderTransform = DialogScale;
 
+
+        UpdateSize();
+
+        SizeChanged += (_, _) => UpdateSize();
+
+    }
+
+
+
+    private void UpdateSize()
+    {
+
+        double w = Bounds.Width;
+
+        double h = Bounds.Height;
+
+
+        if (w <= 0 || h <= 0)
+            return;
+
+
+        const double standardWidth = 450;
+
+
+        double width =
+            Math.Min(
+                w - 20,
+                Math.Max(400, w * (400.0 / standardWidth)));
+
+
+        DialogBox.Width = width;
+
+
+        if (_stretchContent != null)
+        {
+
+            DialogBox.MaxHeight = h - 40;
+
+            _stretchContent.SetViewport(w, h);
+
+        }
+        else
+        {
+
+            DialogBox.MaxHeight = 450;
+
+        }
+
     }
 
 
@@ -33,6 +88,8 @@ public partial class FluentDialog : UserControl
     // Старый запуск (yt-dlp, ffmpeg)
     public async Task ShowAsync()
     {
+        _stretchContent = null;
+
         Root.IsVisible = true;
 
 
@@ -54,12 +111,13 @@ public partial class FluentDialog : UserControl
 
         DialogContent.Content = content;
 
+        _stretchContent = content as IFluentStretchContent;
 
         SetPadding(padding);
 
-
         Root.IsVisible = true;
 
+        UpdateSize();
 
         await OpenAnimation();
 

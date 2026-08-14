@@ -5,6 +5,8 @@
     x:Class="YouTubeDownloader.Views.MainWindow"
     Width="450"
     Height="600"
+    MinWidth="450"
+    MinHeight="600"
     CanResize="True"
     Title="Nabez Downloader"
     FontFamily="Segoe UI"
